@@ -20,6 +20,8 @@ public class SpreadsheetFiller : MonoBehaviour
     private Vector2 rng;
 
     int numberOfActiveCells;
+
+    RaycastHit2D rayHit;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,7 @@ public class SpreadsheetFiller : MonoBehaviour
             for(int j = 0; j < cols; j++)
             {
                 cells[i, j] = Instantiate(spreadSheetCell);
+                cells[i, j].GetComponent<SpreadsheetCell>().pos = new Vector2(i, j);
                 cells[i, j].transform.SetParent(spreadSheet.transform);
                 cells[i, j].transform.localScale = new Vector3(cellWidth, cellHeight, 1);
                 cells[i, j].transform.localPosition = new Vector2(startX + (cellWidth*j) + (centerXOffset), startY - (cellHeight * i));
@@ -47,25 +50,28 @@ public class SpreadsheetFiller : MonoBehaviour
         {
             rng.x = Random.Range(0, cols - 1);
             rng.y = Random.Range(0, rows - 1);
-            cells[(int)rng.x, (int)rng.y].GetComponent<SpreadsheetCell>().SetActive();
+            while (cells[(int)rng.y, (int)rng.x].GetComponent<SpreadsheetCell>().isActive())
+            {
+                rng.x = Random.Range(0, cols - 1);
+                rng.y = Random.Range(0, rows - 1);
+            }
+            cells[(int)rng.y, (int)rng.x].GetComponent<SpreadsheetCell>().SetActive(true);
 
         }
-
-
-        // cells[0,0] = Instantiate(spreadSheetCell);
-        //cells[0, 0].transform.SetParent(spreadSheet.transform);
-        //cells[0, 0].transform.localScale = new Vector3(cellWidth, cellHeight, 1);
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Debug.Log(mousePos.x + "," + mousePos.y);
-            Debug.Log(cells[0, 0].transform.position);
+            rayHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition),Vector2.zero);
+            if(rayHit.collider != null && rayHit.collider.GetComponent<SpreadsheetCell>())
+            {
+                if (rayHit.collider.GetComponent<SpreadsheetCell>().isActive())
+                    rayHit.collider.GetComponent<SpreadsheetCell>().SetActive(false);
+                Debug.Log("Clicked on cell " + rayHit.collider.GetComponent<SpreadsheetCell>().pos);
+            }
         }
     }
 }
