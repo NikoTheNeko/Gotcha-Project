@@ -16,6 +16,10 @@ public class SpreadsheetFiller : MonoBehaviour
     private int cellWidth;
 
     private Vector2 mousePos;
+
+    private Vector2 rng;
+
+    int numberOfActiveCells;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,11 +43,19 @@ public class SpreadsheetFiller : MonoBehaviour
             }
         }
 
+        for(int i = 0; i < 3; i++)
+        {
+            rng.x = Random.Range(0, cols - 1);
+            rng.y = Random.Range(0, rows - 1);
+            cells[(int)rng.x, (int)rng.y].GetComponent<SpreadsheetCell>().SetActive();
 
-       // cells[0,0] = Instantiate(spreadSheetCell);
+        }
+
+
+        // cells[0,0] = Instantiate(spreadSheetCell);
         //cells[0, 0].transform.SetParent(spreadSheet.transform);
         //cells[0, 0].transform.localScale = new Vector3(cellWidth, cellHeight, 1);
-        
+
     }
 
     // Update is called once per frame
