@@ -14,6 +14,8 @@ public class SpreadsheetFiller : MonoBehaviour
 
     private int cellHeight;
     private int cellWidth;
+
+    private Vector2 mousePos;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,11 @@ public class SpreadsheetFiller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Debug.Log(mousePos.x + "," + mousePos.y);
+            Debug.Log(cells[0, 0].transform.position);
+        }
     }
 }
