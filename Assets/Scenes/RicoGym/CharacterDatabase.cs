@@ -133,7 +133,7 @@ public class CharacterDatabase : MonoBehaviour
         for (int i = ownedCount; i < database.Count; ++i)
         {
             float actualChance = database[i].GetMasterChance() / remainingChance;
-            chance += database[i].GetMasterChance();
+            chance += actualChance;
             database[i].UpdateChance(chance, actualChance);
         }
 
