@@ -46,18 +46,7 @@ public class SpreadsheetFiller : MonoBehaviour
             }
         }
 
-        for(int i = 0; i < 3; i++)
-        {
-            rng.x = Random.Range(0, cols - 1);
-            rng.y = Random.Range(0, rows - 1);
-            while (cells[(int)rng.y, (int)rng.x].GetComponent<SpreadsheetCell>().isActive())
-            {
-                rng.x = Random.Range(0, cols - 1);
-                rng.y = Random.Range(0, rows - 1);
-            }
-            cells[(int)rng.y, (int)rng.x].GetComponent<SpreadsheetCell>().SetActive(true);
-
-        }
+        TurnOnCells(3);
     }
 
     // Update is called once per frame
@@ -69,9 +58,31 @@ public class SpreadsheetFiller : MonoBehaviour
             if(rayHit.collider != null && rayHit.collider.GetComponent<SpreadsheetCell>())
             {
                 if (rayHit.collider.GetComponent<SpreadsheetCell>().isActive())
+                {
                     rayHit.collider.GetComponent<SpreadsheetCell>().SetActive(false);
+                    numberOfActiveCells -= 1;
+                    if (numberOfActiveCells == 0)
+                        TurnOnCells(3);
+                }
+                    
                 Debug.Log("Clicked on cell " + rayHit.collider.GetComponent<SpreadsheetCell>().pos);
             }
         }
+    }
+
+    private void TurnOnCells(int n)
+    {
+        for(int i = 0; i < n; i++)
+        {
+            rng.x = Random.Range(0, cols - 1);
+            rng.y = Random.Range(0, rows - 1);
+            while (cells[(int)rng.y, (int)rng.x].GetComponent<SpreadsheetCell>().isActive())
+            {
+                rng.x = Random.Range(0, cols - 1);
+                rng.y = Random.Range(0, rows - 1);
+            }
+            cells[(int)rng.y, (int)rng.x].GetComponent<SpreadsheetCell>().SetActive(true);
+        }
+        numberOfActiveCells = n;
     }
 }
