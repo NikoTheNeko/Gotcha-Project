@@ -490,3 +490,4 @@ MonoBehaviour:
   spreadSheetWidth: 1600
   rows: 12
   cols: 10
+  maxActiveCells: 5
