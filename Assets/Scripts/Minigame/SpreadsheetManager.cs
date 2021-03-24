@@ -21,6 +21,13 @@ public class SpreadsheetManager : MonoBehaviour
     private Vector2 rng; //Used to randomly select cells
     private RaycastHit2D rayHit; //Used to detect what cell the mouse is hovering over
 
+    private static GameObject PointsTrackerObject;
+
+    private void Awake()
+    {
+        PointsTrackerObject = GameObject.Find("Point Tracker");
+    }
+
     void Start()
     {
         //Calculate size of each cell
@@ -65,6 +72,7 @@ public class SpreadsheetManager : MonoBehaviour
                     numberOfActiveCells -= 1;
                     if (numberOfActiveCells == 0)
                         TurnOnCells(maxActiveCells);
+                    PointsTrackerObject.GetComponent<PointsTracker>().AddPoints(100);
                 }  
                 //Debug.Log("Clicked on cell " + rayHit.collider.GetComponent<SpreadsheetCell>().pos);
             }
