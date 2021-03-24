@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpreadsheetFiller : MonoBehaviour
+public class SpreadsheetManager : MonoBehaviour
 {
     public GameObject spreadSheetCell; //Reference to spreadSheetCell prefab. Used to create spreadsheet cells
     public GameObject spreadSheet; //Reference to object cells are assigned to be the child of, this way there arent a million cells in the scene view
@@ -71,13 +71,12 @@ public class SpreadsheetFiller : MonoBehaviour
         }
     }
 
-    /**
-        Randomly selects n number of cells to be set to active
-    **/
+    //Randomly selects n number of cells to be set to active
     private void TurnOnCells(int n)
     {
         for(int i = 0; i < n; i++)
         {
+            //Randomly picks a cell
             rng.x = Random.Range(0, cols - 1);
             rng.y = Random.Range(0, rows - 1);
             //Ensures that the same cell won't be chosen twice
