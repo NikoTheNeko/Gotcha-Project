@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpreadsheetCell : MonoBehaviour
 {
     private bool active = false;
+    public Vector2 pos; //x = row, y = collumn
     private void OnMouseEnter()
     {
         if(!active)
@@ -20,6 +21,7 @@ public class SpreadsheetCell : MonoBehaviour
             GetComponent<SpriteRenderer>().color = Color.cyan;
     }
 
+    /*
     private void OnMouseDown()
     {
         if(active)
@@ -28,10 +30,19 @@ public class SpreadsheetCell : MonoBehaviour
             GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
+    */
 
-    public void SetActive()
+    public void SetActive(bool active)
     {
-        active = true;
-        GetComponent<SpriteRenderer>().color = Color.cyan;
+        this.active = active;
+        if(active)
+            GetComponent<SpriteRenderer>().color = Color.cyan;
+        else
+            GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    public bool isActive()
+    {
+        return active;
     }
 }
