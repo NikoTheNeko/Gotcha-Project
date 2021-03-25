@@ -9,7 +9,7 @@ public class PointsDisplay : MonoBehaviour
 
     private void Awake()
     {
-        PointsTrackerObject = GameObject.Find("Point Tracker");
+        PointsTrackerObject = GameObject.Find("PointsTracker");
     }
 
     private void Update()

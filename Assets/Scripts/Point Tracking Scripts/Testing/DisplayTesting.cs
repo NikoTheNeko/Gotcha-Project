@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class PointsDisplayText : MonoBehaviour{
+public class DisplayTesting : MonoBehaviour{
     public Text PointChecky;
     private static GameObject PointsTrackerObject;
 

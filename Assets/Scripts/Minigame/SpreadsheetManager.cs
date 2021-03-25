@@ -25,7 +25,7 @@ public class SpreadsheetManager : MonoBehaviour
 
     private void Awake()
     {
-        PointsTrackerObject = GameObject.Find("Point Tracker");
+        PointsTrackerObject = GameObject.Find("PointsTracker");
     }
 
     void Start()
