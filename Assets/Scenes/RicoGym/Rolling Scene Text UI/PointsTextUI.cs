@@ -14,6 +14,6 @@ public class PointsTextUI : MonoBehaviour
 
     public void UpdatePointsText()
     {
-        pointsText.text = "Queso Points: " + PersistentData.instance.GetPoints();
+        pointsText.text = "<color=#ffffff>Queso Points:</color> " + PersistentData.instance.GetPoints();
     }
 }
