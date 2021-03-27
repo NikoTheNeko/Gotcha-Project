@@ -7,6 +7,7 @@ public class RollManager : MonoBehaviour
 {
     [Header("Confirm Roll UI")]
     public GameObject confirmCanvas;
+    public ConfirmRollUI confirmRollUI;
 
     [Header("Insufficient Points UI")]
     public GameObject insufficientCanvas;
@@ -27,6 +28,7 @@ public class RollManager : MonoBehaviour
         }
         else
         {
+            confirmRollUI.UpdateConfirmRollText();
             confirmCanvas.SetActive(true);
         }
     }

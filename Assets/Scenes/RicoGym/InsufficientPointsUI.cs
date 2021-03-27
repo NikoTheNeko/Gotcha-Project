@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class InsufficientPointsUI : MonoBehaviour
 {
-    public Text insufficientText;
+    public Text insufficientPointsText;
 
     public void UpdateInsufficientText()
     {
-        insufficientText.text = "Insufficient Queso Points! You only have " + PersistentData.instance.GetPoints() + " points.";
+        insufficientPointsText.text = "Insufficient Queso Points! You only have " + PersistentData.instance.GetPoints() + " points.";
     }
 }
