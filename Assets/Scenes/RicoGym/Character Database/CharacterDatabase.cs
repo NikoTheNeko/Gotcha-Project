@@ -8,24 +8,9 @@ public class CharacterDatabase : MonoBehaviour
     public List<Character> database = new List<Character>();
 
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
         BuildDatabase();
-        PrintDatabase();
-        Roll();
-        PrintDatabase();
-        Roll();
-        PrintDatabase();
-        Roll();
-        PrintDatabase();
-        Roll();
-        PrintDatabase();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     //-----------------------------------------------------------
@@ -79,25 +64,33 @@ public class CharacterDatabase : MonoBehaviour
     //------------------------
     // rolls for a character
     //------------------------
-    public void Roll()
+    public Character Roll()
     {
+        //----------------------------------
+        // subtract points and do the roll
+        //----------------------------------
+        PersistentData.instance.SubtractPoints(999);
+
+        Character toReturn;
         float roll = Random.value;
-        Debug.Log(roll);
         for (int i = 0; i < database.Count; ++i)
         {
             //---------------------------------------------------------------
-            // successful roll, break the loop and do appropriate functions
+            // successful roll, exit the loop and return rolled character
             // otherwise, continue iterating through the database
             //---------------------------------------------------------------
             if (roll < database[i].chance || i == database.Count - 1)
             {
                 database[i].owned = true;
-                Debug.Log("Rolled " + database[i].name);
-                break;
+                toReturn = database[i];
+                UpdateChances();
+                return toReturn;
             }
         }
-
-        UpdateChances();
+        //------------------------------------
+        // the code should never return null
+        //------------------------------------
+        return null;
     }
 
 
@@ -138,6 +131,21 @@ public class CharacterDatabase : MonoBehaviour
         }
 
         database.Sort(delegate(Character c1, Character c2) {return c1.chance.CompareTo(c2.chance);});
+    }
+
+    //----------------------------------------------------
+    // checks if any characters have not been rolled yet
+    //----------------------------------------------------
+    public bool CheckUnrolled()
+    {
+        foreach(var character in database)
+        {
+            if (!character.owned)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     //-------------------------
