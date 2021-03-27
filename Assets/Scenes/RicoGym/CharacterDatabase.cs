@@ -11,21 +11,6 @@ public class CharacterDatabase : MonoBehaviour
     private void Start()
     {
         BuildDatabase();
-        PrintDatabase();
-        Roll();
-        PrintDatabase();
-        Roll();
-        PrintDatabase();
-        Roll();
-        PrintDatabase();
-        Roll();
-        PrintDatabase();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     //-----------------------------------------------------------
@@ -81,6 +66,21 @@ public class CharacterDatabase : MonoBehaviour
     //------------------------
     public void Roll()
     {
+        //---------------------------------------------
+        // check if user has enough points for a roll
+        //---------------------------------------------
+        if (PersistentData.instance.GetPoints() < 999)
+        {
+            Debug.Log("Not enough points! You currently have " + PersistentData.instance.GetPoints());
+            return;
+        }
+
+        //----------------------------------
+        // subtract points and do the roll
+        //----------------------------------
+        Debug.Log("You spent 999 points. You have " + PersistentData.instance.CheckUpdatedTotal(-999) + " points remaining");
+        PersistentData.instance.SubtractPoints(999);
+
         float roll = Random.value;
         Debug.Log(roll);
         for (int i = 0; i < database.Count; ++i)
