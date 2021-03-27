@@ -647,28 +647,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7561893447445855974, guid: fa184a233b023294194e16a717d21078,
         type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561893447445855974, guid: fa184a233b023294194e16a717d21078,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561893447445855974, guid: fa184a233b023294194e16a717d21078,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.5754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561893447445855974, guid: fa184a233b023294194e16a717d21078,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.5754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561893447445855974, guid: fa184a233b023294194e16a717d21078,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.5754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561893447445855974, guid: fa184a233b023294194e16a717d21078,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 7561893447445855975, guid: fa184a233b023294194e16a717d21078,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 508.68
+      value: 415.67
       objectReference: {fileID: 0}
     - target: {fileID: 7561893447445855975, guid: fa184a233b023294194e16a717d21078,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 95.38
+      value: 121.563
       objectReference: {fileID: 0}
     - target: {fileID: 7561893447445855975, guid: fa184a233b023294194e16a717d21078,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2672
+      value: -2684.6892
       objectReference: {fileID: 0}
     - target: {fileID: 7561893447445855975, guid: fa184a233b023294194e16a717d21078,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 100
+      value: -88.595
       objectReference: {fileID: 0}
     - target: {fileID: 7561893448316232198, guid: fa184a233b023294194e16a717d21078,
         type: 3}
@@ -720,8 +745,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 679.53, y: 426.6}
-  m_SizeDelta: {x: 560.94, y: 80.8}
+  m_AnchoredPosition: {x: 614.56, y: 246.07}
+  m_SizeDelta: {x: 556.12, y: 121.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649129097
 MonoBehaviour:
@@ -750,7 +775,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 136
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
