@@ -10,6 +10,8 @@ public class SpreadsheetManager : MonoBehaviour
     public int spreadSheetWidth; //Width of spreadsheet in pixels
     public int rows; //number of rows
     public int cols; //number of collumns
+    public float xOffset;
+    public float yOffset;
     public int maxActiveCells; //number of cells to be set to active when there are no active cells
     private GameObject[,] cells; //Array of spread sheet cells
 
@@ -30,6 +32,7 @@ public class SpreadsheetManager : MonoBehaviour
 
     void Start()
     {
+        spreadSheet.transform.localPosition = new Vector2(xOffset, yOffset);
         //Calculate size of each cell
         cellHeight = spreadSheetHeight / rows;
         cellWidth = spreadSheetWidth / cols;
