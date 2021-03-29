@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 public class SpreadsheetCell : MonoBehaviour
 {
-    public Text text;
+    public TextMeshProUGUI text;
     private bool active = false;
     public Vector2 pos; //x = row, y = collumn
     private void Awake()
     {
-        text = transform.GetChild(0).GetChild(0).GetComponent<Text>();
+        text = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        text.transform.localScale = new Vector2(0.5f, 1);
+        text.rectTransform.rect.Set(text.rectTransform.rect.x, text.rectTransform.rect.y, text.rectTransform.rect.width * 2, text.rectTransform.rect.height);
         text.text = "";
     }
     private void OnMouseEnter()
