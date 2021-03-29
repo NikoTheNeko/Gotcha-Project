@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class SpreadsheetCell : MonoBehaviour
 {
+    public Text text;
     private bool active = false;
     public Vector2 pos; //x = row, y = collumn
+    private void Awake()
+    {
+        text = transform.GetChild(0).GetChild(0).GetComponent<Text>();
+        text.text = "";
+    }
     private void OnMouseEnter()
     {
         if(!active)
@@ -36,9 +42,17 @@ public class SpreadsheetCell : MonoBehaviour
     {
         this.active = active;
         if(active)
+        {
+            text.text = "Bitch";
             GetComponent<SpriteRenderer>().color = Color.cyan;
+        }
+            
         else
+        {
+            text.text = "";
             GetComponent<SpriteRenderer>().color = Color.white;
+        }
+            
     }
 
     public bool isActive()

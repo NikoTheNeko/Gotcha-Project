@@ -97,6 +97,7 @@ public class SpreadsheetManager : MonoBehaviour
                 rng.y = Random.Range(0, rows - 1);
             }
             cells[(int)rng.y, (int)rng.x].GetComponent<SpreadsheetCell>().SetActive(true);
+            cells[(int)rng.y, (int)rng.x].GetComponent<SpreadsheetCell>().text.text = "bitch";
         }
         numberOfActiveCells = n;
     }
