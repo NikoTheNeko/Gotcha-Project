@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NIko's Test Scenes/Carryover Check 1.unity
     guid: 2b21f364ee47fe448b0c5690088ddcc0
+  - enabled: 1
+    path: Assets/Scenes/Roll Zone.unity
+    guid: 28bc8e01b2b45ae498045fd2a4b9cbc1
   m_configObjects: {}

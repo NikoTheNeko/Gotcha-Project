@@ -6,12 +6,14 @@ public class DisplayTesting : MonoBehaviour{
     public Text PointChecky;
     private static GameObject PointsTrackerObject;
 
-    private void Awake() {
-        PointsTrackerObject = GameObject.Find("PointsTracker");
+    private void Awake() 
+    {
+        //PointsTrackerObject = GameObject.Find("PointsTracker");
     }
 
     // Update is called once per frame
-    void Update(){
-        PointChecky.text = "Points: " + PointsTrackerObject.GetComponent<PointsTracker>().GetPoints().ToString();
+    void Update()
+    {
+        //PointChecky.text = "Points: " + PointsTrackerObject.GetComponent<PointsTracker>().GetPoints().ToString();
     }
 }
