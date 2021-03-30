@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterDatabase : MonoBehaviour
 {
+    [Header("Database Stuff")]
     public TextAsset databaseFile;
     public List<Character> database = new List<Character>();
 

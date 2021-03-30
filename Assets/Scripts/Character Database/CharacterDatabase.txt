@@ -1,7 +1,9 @@
-1/GDA Chan/0.3
-2/h/0.25
-3/Saucepan/0.15
-4/Gremlin/0.1
-5/Astra & Noelani/0.1
-6/Isekai Jeven/0.05
-7/Catboy Niko/0.05
+1/h/0.175
+2/Saucepan/0.175
+3/Isekai Jeven/0.175
+4/Catboy Niko/0.175
+5/Gremlin/0.1
+6/Noelani & Astra/0.1
+7/gold h/0.05
+8/GDA-Chan/0.045
+9/???/0.005

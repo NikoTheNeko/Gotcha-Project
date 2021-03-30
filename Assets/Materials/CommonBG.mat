@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Character Background
+  m_Name: CommonBG
   m_Shader: {fileID: -6465566751694194690, guid: c6808d0c4bb949541a9a4d76dfc2d5ee,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA

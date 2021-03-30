@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class RollManager : MonoBehaviour
 {
     [Header("Main Screen UI")]
+    public GameObject mainCanvas;
     public PointsTextUI pointsText;
     public PossibleRollsTextUI possibleRolls;
 
@@ -23,6 +24,12 @@ public class RollManager : MonoBehaviour
 
     [Header("No More Characters UI")]
     public GameObject noMoreCharactersCanvas;
+
+    [Header("RollingMaterials")]
+    public GameObject[] CharacterArray = new GameObject[9];
+    public GameObject SpawnCharacterLocation;
+
+    public GameObject CharacterToDestroy;
 
     private void Start()
     {
@@ -75,12 +82,25 @@ public class RollManager : MonoBehaviour
         Character rolled = PersistentData.instance.characterDatabase.GetComponent<CharacterDatabase>().Roll();
         confirmCanvas.SetActive(false);
 
+        /**
+        *   Spawns the character
+        **/
+        Quaternion Rotato = new Quaternion(0,0,0,0);
+        CharacterToDestroy = Object.Instantiate(CharacterArray[rolled.id], SpawnCharacterLocation.transform.position, Rotato);
+        CharacterToDestroy.transform.SetParent(SpawnCharacterLocation.transform);
+        CharacterToDestroy.transform.localScale = new Vector3(1,1,1);
+
         //----------------------------------------------------------------
         // show what character was rolled and update text on main screen
         //----------------------------------------------------------------
         characterRolledCanvas.SetActive(true);
-        characterRolled.UpdateCharacterRolledText(rolled);
+        //characterRolled.UpdateCharacterRolledText(rolled);
         pointsText.UpdatePointsText();
         possibleRolls.UpdatePossibleRollsText();
+        mainCanvas.SetActive(false);
+    }
+
+    public void DestroyCharacter(){
+        GameObject.Destroy(CharacterToDestroy);
     }
 }
