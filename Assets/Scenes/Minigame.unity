@@ -578,6 +578,14 @@ MonoBehaviour:
   xOffset: 134.2
   yOffset: 51.1
   maxActiveCells: 5
+  tasks:
+  - Buy Baja Blast
+  - Go to Chilli's
+  - Attend General Meeting
+  - Bully Jeven
+  - Make tea(in saucepan)
+  - h
+  - bingus
 --- !u!1001 &1606305064
 PrefabInstance:
   m_ObjectHideFlags: 0

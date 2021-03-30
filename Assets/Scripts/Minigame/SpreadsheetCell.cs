@@ -10,8 +10,8 @@ public class SpreadsheetCell : MonoBehaviour
     private void Awake()
     {
         text = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-        text.transform.localScale = new Vector2(0.5f, 1);
-        text.rectTransform.rect.Set(text.rectTransform.rect.x, text.rectTransform.rect.y, text.rectTransform.rect.width * 2, text.rectTransform.rect.height);
+        //text.transform.localScale = new Vector2(0.5f, 1);
+        //text.rectTransform.rect.Set(text.rectTransform.rect.x, text.rectTransform.rect.y, text.rectTransform.rect.width * 2, text.rectTransform.rect.height);
         text.text = "";
     }
     private void OnMouseEnter()
@@ -55,6 +55,11 @@ public class SpreadsheetCell : MonoBehaviour
             GetComponent<SpriteRenderer>().color = Color.white;
         }
             
+    }
+
+    public void SetSize(int width, int height)
+    {
+        text.rectTransform.sizeDelta = (new Vector2(width, height));
     }
 
     public bool isActive()
