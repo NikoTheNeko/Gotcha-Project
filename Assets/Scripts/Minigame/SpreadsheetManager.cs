@@ -14,6 +14,8 @@ public class SpreadsheetManager : MonoBehaviour
     public float yOffset;
     public int maxActiveCells; //number of cells to be set to active when there are no active cells
     private GameObject[,] cells; //Array of spread sheet cells
+    [SerializeField]
+    private string[] tasks;
 
     //Size of a spreadsheet cell in pixels
     private int cellHeight;
@@ -54,6 +56,8 @@ public class SpreadsheetManager : MonoBehaviour
                 cells[i, j].transform.SetParent(spreadSheet.transform);
                 cells[i, j].transform.localScale = new Vector3(cellWidth, cellHeight, 1);
                 cells[i, j].transform.localPosition = new Vector2(startX + (cellWidth*j) + (centerXOffset), startY - (cellHeight * i));
+                //text.rectTransform.rect.Set(text.rectTransform.rect.x, text.rectTransform.rect.y, text.rectTransform.rect.width * 2, text.rectTransform.rect.height);
+                //cells[i, j].GetComponent<SpreadsheetCell>().SetSize(cellWidth, cellHeight);
             }
         }
 
@@ -98,6 +102,8 @@ public class SpreadsheetManager : MonoBehaviour
                 rng.y = Random.Range(0, rows - 1);
             }
             cells[(int)rng.y, (int)rng.x].GetComponent<SpreadsheetCell>().SetActive(true);
+
+            cells[(int)rng.y, (int)rng.x].GetComponent<SpreadsheetCell>().text.text = tasks[Random.Range(0,tasks.Length)];
         }
         numberOfActiveCells = n;
     }

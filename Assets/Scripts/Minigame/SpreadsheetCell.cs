@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class SpreadsheetCell : MonoBehaviour
 {
+    public TextMeshProUGUI text;
     private bool active = false;
     public Vector2 pos; //x = row, y = collumn
+    private void Awake()
+    {
+        text = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        //text.transform.localScale = new Vector2(0.5f, 1);
+        //text.rectTransform.rect.Set(text.rectTransform.rect.x, text.rectTransform.rect.y, text.rectTransform.rect.width * 2, text.rectTransform.rect.height);
+        text.text = "";
+    }
     private void OnMouseEnter()
     {
         if(!active)
@@ -36,9 +44,22 @@ public class SpreadsheetCell : MonoBehaviour
     {
         this.active = active;
         if(active)
+        {
+            text.text = "Bitch";
             GetComponent<SpriteRenderer>().color = Color.cyan;
+        }
+            
         else
+        {
+            text.text = "";
             GetComponent<SpriteRenderer>().color = Color.white;
+        }
+            
+    }
+
+    public void SetSize(int width, int height)
+    {
+        text.rectTransform.sizeDelta = (new Vector2(width, height));
     }
 
     public bool isActive()

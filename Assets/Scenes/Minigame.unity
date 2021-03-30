@@ -281,7 +281,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -647,6 +647,18 @@ MonoBehaviour:
   xOffset: 134.2
   yOffset: 51.1
   maxActiveCells: 5
+  tasks:
+  - Buy Baja Blast
+  - Go to Chilli's
+  - Attend General Meeting
+  - Bully Jeven
+  - Make tea(in saucepan)
+  - h
+  - bingus
+  - Make assets
+  - nya
+  - Train gremlins
+  - Help Noelani build a tower
 --- !u!1001 &1606305064
 PrefabInstance:
   m_ObjectHideFlags: 0
